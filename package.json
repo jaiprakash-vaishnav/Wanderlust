@@ -2,6 +2,16 @@
   "engines":{
     "node" : "20.17.0"
   },
+  "name" : "Wanderlust",
+  "version" : "1.0.0",
+  "description": "",
+  "main":"index.js",
+  "scripts": {
+    "test" : "echo \"Error: no exit test specified\" && exit 1"
+  },
+  "keywords" : [],
+  "author" : "",
+  "license":"ISC",
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.16.2",
     "cloudinary": "^2.8.0",
