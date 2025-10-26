@@ -18,7 +18,9 @@ router.route("/")
     wrapAsync(listingController.createListing)
 );
 //new route
-router.get("/new", isLoggedIn, listingController.renderNewForm)
+router.get("/new", isLoggedIn, listingController.renderNewForm);
+
+router.get("/filters/:name",validateListing,wrapAsync(listingController.filters));
 
 //show route //update route // delete route
 router.route("/:id")

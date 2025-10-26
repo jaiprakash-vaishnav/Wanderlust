@@ -81,3 +81,20 @@ module.exports.destoryListing = async (req, res) => {
     req.flash("success", "Listing Deleted!");
     res.redirect("/listings");
 };
+
+module.exports.filters = async(req,res,next)=>{
+    let { name } = req.params;
+    try {
+        name = name.toLowerCase();
+        const allListings = await Listing.find({category : name});
+        if(allListings.length){
+            res.render("./listings/index.ejs", { allListings })
+        }else{
+            req.flash("error",`${name} category is not found`);
+            res.redirect("/listings");
+        }    
+    } catch (error) {
+        req.flash("error",`${name} category is not found`);
+        res.redirect("/listings");
+    }
+};

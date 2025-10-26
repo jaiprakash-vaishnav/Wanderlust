@@ -87,10 +87,10 @@ app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
 
-//root route
-// app.get("/", (req, res) => {
-//     res.send("root is working");
-// });
+// root route
+app.get("/", (req, res) => {
+    res.render("./listings/welcome.ejs");
+});
 
 // app.all("*",(req,res,next)=>{
 //     next(new ExpressError(404,"Page Not Found!"));
