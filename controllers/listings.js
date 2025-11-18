@@ -82,7 +82,7 @@ module.exports.destoryListing = async (req, res) => {
     res.redirect("/listings");
 };
 
-module.exports.filters = async(req,res,next)=>{
+module.exports.filters = async(req,res)=>{
     let { name } = req.params;
     try {
         name = name.toLowerCase();
@@ -97,4 +97,21 @@ module.exports.filters = async(req,res,next)=>{
         req.flash("error",`${name} category is not found`);
         res.redirect("/listings");
     }
+};
+
+module.exports.search = async(req, res)=>{
+    let query = req.query.q;
+    try {
+        const allListings = await Listing.find({$or: [{location : { $regex: query, $options: 'i'}}, {country : { $regex: query, $options: 'i'}}]});
+        if(allListings.length){
+            res.render("./listings/index.ejs", { allListings })
+        }else{
+            req.flash("error",`${query} Destination is Not Found`);
+            res.redirect("/listings");
+        }  
+    } catch (error) {
+        req.flash("error",`${query} is Not Found`);
+        res.redirect("/listings");
+    }
+    
 };
