@@ -30,7 +30,7 @@
         </div>
         <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
             <div class="btns">
-                <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+                <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1 offset-3 edit-btn mr-1">Edit</a>
                 <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-dark offset-5 ">Delete</button>
                 </form>
@@ -92,11 +92,13 @@
                             <%= review.comment %>
                         </p>                                     
                     </div>
-                    <form class="mb-3"
-                        action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE"
-                        method="POST">
-                        <button class="btn btn-dark btn-sm">Delete</button>
-                    </form>
+                    <% if (currUser && currUser._id.equals(review.author.username)) { %>
+                        <form class="mb-3"
+                            action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE"
+                            method="POST">
+                            <button class="btn btn-dark btn-sm">Delete</button>
+                        </form>
+                    <%} %>
                 </div>
             <%}%>
         </div>
