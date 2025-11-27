@@ -1,6 +1,6 @@
 # 🌍 Wanderlust
 
-A travel-themed web application built with Node.js, Express, MongoDB, and EJS. Wanderlust helps users explore destinations, view details, and search for places with a responsive and dynamic interface.
+A travel-themed web application built with Node.js, Express, MongoDB, and EJS. Wanderlust helps users explore destinations, view details, and search for places with a responsive.
 
 🔗 [Live Demo](https://wanderlust-sooty.vercel.app)
 
@@ -19,7 +19,7 @@ A travel-themed web application built with Node.js, Express, MongoDB, and EJS. W
 ## 🚀 Getting Started
 
 Follow these steps to run Wanderlust locally:
-
+## Node.js is also required.
 ### 1️⃣ Clone the Repository
 
 ```bash
@@ -58,7 +58,7 @@ node app.js
 - 🌍 Travel theme
 - 🔍 Search bar
 - 🏞️ Destination cards
-- 📱 Mobile-friendly layou
+- 📱 Mobile-friendly layout
 
 ###🛠️ Technologies Used
 - Node.js
